@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/believer-danish/learning-git/issues"
   },
-  "homepage": "https://github.com/believer-danish/learning-git#readme"
+  "homepage": "https://github.com/believer-danish/learning-git#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
 }
