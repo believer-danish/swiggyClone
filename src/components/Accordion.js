@@ -77,7 +77,7 @@ const AccordionCategory = (props) => {
       <div>
         {indx === categoryIndex &&
           itemCards.map((ele) => {
-            return <CategoryItems ele={ele} key={ele.card.info.id} />;
+            return <CategoryItems ele={ele} key={ele?.card?.info?.id} />;
           })}
       </div>
     </div>
@@ -89,14 +89,14 @@ export default Accordion = ({ categories }) => {
   return (
     <div>
       {categories.map((ele, indx) => {
-        const { itemCards } = ele.card.card;
+        const { itemCards } = ele?.card?.card;
 
         return (
           <AccordionCategory
             itemCards={itemCards}
             elem={ele}
             indx={indx}
-            key={ele.card.card.title}
+            key={ele?.card?.card?.title}
             categoryIndex={categoryIndex}
             setCategoryIndex={setCategoryIndex}
           />
