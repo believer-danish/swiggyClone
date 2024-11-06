@@ -6,7 +6,7 @@ const Carousel = ({ items }) => {
 
         <div className="flex justify-end gap-4">
           <button
-            className="bg-gray-200 hover:bg-gray-500 text-black rounded-full p-4 pt-2 text-4xl text-center"
+            className="bg-gray-200 hover:bg-gray-500  text-black rounded-full p-4 pt-2 text-4xl text-center"
             onClick={() => {
               const ele = document.getElementById("scroll-section");
               ele.scrollBy(-300, 0);

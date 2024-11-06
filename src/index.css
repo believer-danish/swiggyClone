@@ -7,6 +7,9 @@
 * {
   font-family: "Roboto";
 }
+:root {
+  scroll-behavior: smooth;
+}
 
 .scrollable-content::-webkit-scrollbar {
   display: none;
@@ -19,4 +22,9 @@
 }
 .myscroll::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
+  scroll-behavior: smooth;
+}
+
+my {
+  scroll-behavior: smooth;
 }

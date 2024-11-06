@@ -67,7 +67,7 @@ const RestaurantPage = () => {
 
         {/* Accordion */}
 
-        <Accordion categories={categories} />
+        {/* <Accordion categories={categories} /> */}
       </section>
     </div>
   );
