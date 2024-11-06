@@ -1,5 +1,5 @@
 import ResCard from "./ResCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useResList from "../utils/useResList";
@@ -13,10 +13,10 @@ const BodyComp = () => {
   const [restaurantList, setRestaurant] = useState([]);
   const [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
   const [dish, setDish] = useState([]);
-
   const onlineStatus = useOnlineStatus();
-
   useResList(setRestaurant, setFilteredRestaurantList, setDish);
+
+  useEffect(() => {}, []);
 
   if (onlineStatus === false) return <h1>Looks you are offline</h1>;
 
