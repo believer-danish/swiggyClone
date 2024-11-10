@@ -6,7 +6,7 @@ const useResList = (setRestaurant, setFilteredRestaurantList, setDish) => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(/scripts/x.js);
+    const data = await fetch("https://swiggy-colone-app.netlify.app/pathx");
 
     const json = await data.json();
     console.log(json);
