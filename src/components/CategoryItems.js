@@ -4,8 +4,8 @@ import { addItem } from "../utils/cartSlice.js";
 import { useState } from "react";
 import CategoryItems from "./CategoryItems";
 export default CategoryItems = ({ ele }) => {
-  const { name, price, ratings, id, imageId, defaultPrice, description } =
-    ele?.card?.info;
+  const { name, price, ratings, id, imageId } = ele?.card?.info;
+  const { defaultPrice, description } = ele?.card?.info;
   const [isMore, setIsMore] = useState(true);
   const [des, setDes] = useState(description && description.slice(0, 145));
   const dispatch = useDispatch();

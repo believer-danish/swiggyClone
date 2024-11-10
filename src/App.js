@@ -19,12 +19,14 @@ const Account = lazy(() => {
 const App = () => {
   console.log("app");
   return (
-    <main className="app-container">
-      <Provider store={appStore}>
-        <Header />
-        <Outlet />
-      </Provider>
-    </main>
+    <React.StrictMode>
+      <main className="app-container">
+        <Provider store={appStore}>
+          <Header />
+          <Outlet />
+        </Provider>
+      </main>
+    </React.StrictMode>
   );
 };
 
