@@ -9,7 +9,7 @@ const useResMenu = (resId) => {
   const fetchMenu = async () => {
     const data = await fetch(
       `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.59080&lng=85.13480&restaurantId=${resId}`,
-      { mode: "no-cors" }
+      { mode: "cors" }
     );
 
     const json = await data.json();
