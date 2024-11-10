@@ -2,7 +2,7 @@ import { CDN_URL } from "./../utils/constants.js";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice.js";
 import { useState } from "react";
-
+import CategoryItems from "./CategoryItems";
 export default CategoryItems = ({ ele }) => {
   const { name, price, ratings, id, imageId, defaultPrice, description } =
     ele?.card?.info;
