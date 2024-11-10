@@ -20,11 +20,10 @@ const Cart = () => {
           Clear Cart
         </button>
       </div>
-      <div>
-        {cartItems.map((ele, i) => (
-          <CategoryItems ele={ele} key={i} />
-        ))}
-      </div>
+
+      {cartItems.map((ele, i) => (
+        <CategoryItems ele={ele} key={i} />
+      ))}
     </div>
   );
 };
