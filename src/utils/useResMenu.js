@@ -8,7 +8,8 @@ const useResMenu = (resId) => {
 
   const fetchMenu = async () => {
     const data = await fetch(
-      `https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.59080&lng=85.13480&restaurantId=${resId}`
+      `https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.59080&lng=85.13480&restaurantId=${resId}`,
+      { mode: "no-cors" }
     );
 
     const json = await data.json();
