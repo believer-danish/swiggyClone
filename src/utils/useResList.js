@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+const cors = require("cors");
 const useResList = (setRestaurant, setFilteredRestaurantList, setDish) => {
   useEffect(() => {
     fetchData();
@@ -6,8 +7,7 @@ const useResList = (setRestaurant, setFilteredRestaurantList, setDish) => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.59080&lng=85.13480&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
-      { mode: "cors" }
+      "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.59080&lng=85.13480&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     const json = await data.json();
