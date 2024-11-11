@@ -7,7 +7,7 @@ import logo from "./../../assets/image/swiggy_logo.svg";
 // import UserContext from "../utils/UserContext";
 
 const Header = () => {
-  console.log("header");
+  // console.log("header");
   // const data = useContext(UserContext);
   const onlineStatus = useOnlineStatus();
   const cartItems = useSelector((store) => store.cart.item);

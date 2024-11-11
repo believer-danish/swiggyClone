@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import CategoryItems from "./CategoryItems";
+// import CategoryItems from "./CategoryItems";
 import { clearCart } from "../utils/cartSlice";
 
 const Cart = () => {
@@ -22,7 +22,8 @@ const Cart = () => {
       </div>
 
       {cartItems.map((ele, i) => (
-        <CategoryItems ele={ele} key={i} />
+        <h1>hello</h1>
+        // <CategoryItems ele={ele} key={i} />
       ))}
     </div>
   );

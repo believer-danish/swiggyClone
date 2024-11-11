@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-const cors = require("cors");
+
 const useResList = (setRestaurant, setFilteredRestaurantList, setDish) => {
   useEffect(() => {
     fetchData();

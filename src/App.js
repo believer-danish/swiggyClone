@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header.js";
 import Body from "./components/Body.js";
@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import appStore from "./utils/appStore.js";
 import { Provider } from "react-redux";
 import Cart from "./components/Cart.js";
+import useResList from "./utils/useResList.js";
 // import UserContext from "./utils/UserContext.js";
 
 const Account = lazy(() => {
@@ -17,16 +18,28 @@ const Account = lazy(() => {
 });
 
 const App = () => {
-  console.log("app");
+  const [restaurantList, setRestaurant] = useState([]);
+  const [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
+  const [dish, setDish] = useState([]);
+
+  useResList(setRestaurant, setFilteredRestaurantList, setDish);
+
   return (
-    <React.StrictMode>
-      <main className="app-container">
-        <Provider store={appStore}>
-          <Header />
-          <Outlet />
-        </Provider>
-      </main>
-    </React.StrictMode>
+    <main className="app-container">
+      <Provider store={appStore}>
+        <Header />
+        <Outlet
+          context={[
+            restaurantList,
+            setRestaurant,
+            filteredRestaurantList,
+            setFilteredRestaurantList,
+            dish,
+            setDish,
+          ]}
+        />
+      </Provider>
+    </main>
   );
 };
 

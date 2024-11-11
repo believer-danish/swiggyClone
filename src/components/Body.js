@@ -1,7 +1,7 @@
 import ResCard from "./ResCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import useResList from "../utils/useResList";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Search from "./Search";
@@ -9,15 +9,15 @@ import Carousel from "./Carousel";
 
 const BodyComp = () => {
   console.log("body");
-
-  const [restaurantList, setRestaurant] = useState([]);
-  const [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
-  const [dish, setDish] = useState([]);
+  const [
+    restaurantList,
+    setRestaurant,
+    filteredRestaurantList,
+    setFilteredRestaurantList,
+    dish,
+    setDish,
+  ] = useOutletContext();
   const onlineStatus = useOnlineStatus();
-  useResList(setRestaurant, setFilteredRestaurantList, setDish);
-
-  useEffect(() => {}, []);
-
   if (onlineStatus === false) return <h1>Looks you are offline</h1>;
 
   console.log(restaurantList);
