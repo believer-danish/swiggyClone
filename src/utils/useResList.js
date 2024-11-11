@@ -7,7 +7,7 @@ const useResList = (setRestaurant, setFilteredRestaurantList, setDish) => {
 
   const fetchData = async () => {
     const data = await fetch(
-      `https://api.allorigins.win/get?url=${encodeURIComponent(
+      `https://api.allorigins.win/raw?url=${encodeURIComponent(
         "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.59080&lng=85.13480&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       )}`
     );
