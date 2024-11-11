@@ -1,7 +1,5 @@
-// import { useState } from "react";
-// import AccordionCategory from "./AccordionCategory";
+const Accordion = () => {
+  return <div>Accordion</div>;
+};
 
-// export default Accordion = ({ categories }) => {
-//   const [categoryIndex, setCategoryIndex] = useState(0);
-//   return <div>accordion</div>;
-// };
+export default Accordion;
