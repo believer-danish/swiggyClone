@@ -8,13 +8,13 @@ const useResMenu = (resId) => {
 
   const fetchMenu = async () => {
     const data = await fetch(
-      `https://api.allorigins.win/raw?url=${encodeURIComponent(
-        `https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.59080&lng=85.13480&restaurantId=${resId}`
+      `https://api.allorigins.win/get?url=${encodeURIComponent(
+        `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.99740&lng=79.00110&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`
       )}`
     );
 
-    const json = await data.json();
-    console.log(json);
+    let json = await data.json();
+    json = JSON.parse(json.contents);
     setItems(json);
   };
   // console.log("hello");
