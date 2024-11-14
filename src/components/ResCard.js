@@ -9,7 +9,7 @@ const ResCard = (props) => {
   // console.log(cuisines)
 
   return (
-    <div className="flex flex-col gap-4  w-full h-full p-4 shadow-[0px_0px_4px_gray] rounded-lg hover:scale-105 transition-all">
+    <div className="myanimation flex flex-col gap-4  w-full h-full p-4 shadow-[0px_0px_4px_gray] rounded-lg hover:scale-105 transition-all">
       <div className=" w-full ">
         <img
           className="w-full aspect-[16/12] rounded-md"
@@ -28,7 +28,5 @@ const ResCard = (props) => {
     </div>
   );
 };
-
-
 
 export default ResCard;

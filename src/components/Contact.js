@@ -25,9 +25,8 @@ class Contact extends React.Component {
   }
 
   render() {
-    
     return (
-      <div className="mojo">
+      <div className="mojo h-[200vh]">
         <h1>
           Name :{" "}
           {

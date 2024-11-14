@@ -18,9 +18,45 @@ const BodyComp = () => {
     setDish,
   ] = useOutletContext();
   const onlineStatus = useOnlineStatus();
+  useEffect(() => {
+    function fun(e) {
+      if (
+        document.documentElement.scrollTop + window.innerHeight >=
+        document.documentElement.scrollHeight - 800
+      ) {
+        console.log("called");
+        setFilteredRestaurantList((prev) => {
+          const newArr = prev.map((e) => {
+            const newObj = structuredClone(e);
+            newObj.info.key = crypto.randomUUID();
+            return newObj;
+          });
+          console.log([...prev, ...newArr]);
+          return [...prev, ...newArr];
+        });
+      }
+    }
+    function create(cb, delay) {
+      let prev = 0;
+      return function (...p) {
+        let now = Date.now();
+        if (now - prev >= delay) {
+          prev = now;
+          cb(...p);
+        }
+      };
+    }
+    const th = create(fun, 2000);
+
+    window.addEventListener("scroll", th);
+
+    return () => {
+      window.removeEventListener("scroll", fun);
+    };
+  }, []);
   if (onlineStatus === false) return <h1>Looks you are offline</h1>;
 
-  console.log(restaurantList);
+  console.log(filteredRestaurantList);
   if (restaurantList.length === 0) {
     return (
       <>
@@ -53,11 +89,10 @@ const BodyComp = () => {
             return (
               <Link
                 className="w-80"
-                key={restaurant.info.id}
+                key={restaurant.info.key || crypto.randomUUID()}
                 to={"/restaurant/" + restaurant.info.id}
               >
                 <ResCard resData={restaurant} />
-                {/* <Enhanced resData={restaurant} /> */}
               </Link>
             );
           })}
