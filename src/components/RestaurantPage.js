@@ -1,24 +1,14 @@
 import useResMenu from "../utils/useResMenu";
 import Shimmer from "./Shimmer";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Accordion from "./Accordion";
 
 const RestaurantPage = () => {
-  console.log("respage");
   const { resId } = useParams();
   const resInfo = useResMenu(resId);
-  // console.log(resInfo?.data);
-  if (resInfo === null) return <Shimmer></Shimmer>;
-  const {
-    name,
-    costForTwoMessage,
-    cuisines,
-    totalRatingsString,
-    areaName,
-    sla,
-  } = resInfo?.data?.cards[2]?.card?.card?.info;
 
-  // console.log(resInfo);
+  const { name, costForTwo, cuisines, totalRatingsString, areaName, sla } =
+    useLocation().state;
 
   const categories = resInfo?.data?.cards[
     resInfo.data.cards.length - 1
@@ -40,7 +30,7 @@ const RestaurantPage = () => {
         "
         >
           <p className="font-bold ">
-            ✪ ({totalRatingsString}) . {costForTwoMessage}
+            ✪ ({totalRatingsString}) . {costForTwo}
           </p>
           <p className="text-orange-600 underline font-semibold">
             {cuisines.join(" , ")}
@@ -67,7 +57,7 @@ const RestaurantPage = () => {
 
         {/* Accordion */}
 
-        <Accordion categories={categories} />
+        {resInfo ? <Accordion categories={categories} /> : <Shimmer />}
       </section>
     </div>
   );

@@ -16,14 +16,14 @@ const CategoryItems = ({ ele }) => {
   return (
     <div key={id}>
       <div className="border-b-[1px] py-4 flex ">
-        {/* <div className=" w-full">
+        <div className=" w-full">
           <h1 className="font-medium text-gray-700">{name}</h1>
           <span className="text-sm">₹{price / 100 || defaultPrice / 100}</span>
           <p className="text-sm">
             <span className="text-green-600">★ </span>
             <span>
-              {ratings.aggregatedRating.rating} (
-              {ratings.aggregatedRating.ratingCountV2})
+              {ratings?.aggregatedRating?.rating} (
+              {ratings?.aggregatedRating?.ratingCountV2})
             </span>
           </p>
 
@@ -39,16 +39,14 @@ const CategoryItems = ({ ele }) => {
               {isMore ? "...more" : ""}
             </span>
           </p>
-        </div> */}
+        </div>
 
         <div className="w-1/4">
           <img src={CDN_URL + imageId} alt="menu item name" />
           <button
             onClick={handleAddItem}
             className="border-2 border-black rounded px-3 py-1 w-2/3 mx-auto block"
-          >
-            Add+
-          </button>
+          ></button>
         </div>
       </div>
     </div>

@@ -91,6 +91,7 @@ const BodyComp = () => {
                 className="w-80"
                 key={restaurant.info.key || crypto.randomUUID()}
                 to={"/restaurant/" + restaurant.info.id}
+                state={restaurant.info}
               >
                 <ResCard resData={restaurant} />
               </Link>
