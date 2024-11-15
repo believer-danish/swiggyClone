@@ -30,7 +30,7 @@ const useResMenu = (resId) => {
     //   `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${latitude}&lng=${longitude}&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`
     // );
     // const json = await data.json();
-    // console.log(json);
+    console.log(json);
     setItems(json);
   };
   // console.log("hello");

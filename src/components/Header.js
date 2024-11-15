@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
-import cartIcon from "/assets/image/shopping-cart.png";
+
 import { useSelector } from "react-redux";
 import logo from "./../../assets/image/swiggy_logo.svg";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  ShoppingCartIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import { useState } from "react";
 // import UserContext from "../utils/UserContext";
 
@@ -15,8 +18,8 @@ const Header = () => {
   const [bars, setBars] = useState(true);
 
   return (
-    <header className="shadow-xl text-slate-500">
-      <section className="m-2 py-4 flex items-center justify-around gap-4 px-8  ">
+    <header className="shadow-xl text-slate-100 svgBackground ">
+      <section className=" py-4 flex items-center justify-around gap-4 px-8  ">
         <div
           className="w-10 overflow-hidden rounded-full"
           onClick={() => {
@@ -30,9 +33,9 @@ const Header = () => {
 
         <nav className="">
           <ul
-            className={`p-5 md:flex md:w-full md:items-center md:static md:h-auto md:flex-row md:bg-none gap-6 text-xl  fixed w-80 h-screen bg-gradient-to-r to-orange-500 from-orange-300 ${
+            className={`z-10 p-5 md:flex md:w-full md:items-center md:static md:h-auto md:flex-row md:bg-none gap-6 text-xl  fixed w-80 h-screen bg-gradient-to-r to-orange-500 from-orange-300 ${
               bars ? "-right-full" : "right-0"
-            } top-24 flex flex-col justify-start items-start transition-all`}
+            } top-0 flex flex-col justify-start items-start transition-all`}
           >
             <Link
               to="/"
@@ -40,26 +43,24 @@ const Header = () => {
             >
               <li>Home</li>
             </Link>
-            <Link to="/offers" className="hover:shadow-[0px_2px_0px_gray]">
-              <li>Offers</li>
+            <Link to="/about" className="hover:shadow-[0px_2px_0px_gray]">
+              <li>About</li>
             </Link>
             <Link to="/contact" className="hover:shadow-[0px_2px_0px_gray]">
               <li>Contact</li>
             </Link>
-            <Link to="/account" className="hover:shadow-[0px_2px_0px_gray]">
-              <li>Account</li>
-            </Link>
 
             <Link to="/cart" className="hover:shadow-[0px_2px_0px_gray]">
               <li className="flex gap-2 items-center justify-center">
-                <img src={cartIcon} width={50} height={50} /> (
-                {cartItems.length})
+                <ShoppingCartIcon className="size-12" />({cartItems.length})
               </li>
             </Link>
           </ul>
           <div
             onClick={() => setBars(!bars)}
-            className="md:hidden cursor-pointer"
+            className={`md:hidden cursor-pointer z-10 ${
+              bars ? "" : "fixed top-4"
+            }`}
           >
             {bars ? (
               <Bars3Icon className="size-12 " />

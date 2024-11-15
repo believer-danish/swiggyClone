@@ -10,19 +10,22 @@ const Accordion = ({ categories }) => {
       {categories.map((ele, indx) => {
         const { itemCards } = ele?.card?.card;
         return (
-          <div className="border-b-8 border-gray-300" key={crypto.randomUUID()}>
+          <div
+            className="border-b-8 border-gray-300 "
+            key={crypto.randomUUID()}
+          >
             <div
               onClick={() => {
                 categoryIndex === indx
                   ? setCategoryIndex(-1)
                   : setCategoryIndex(indx);
               }}
-              className="flex justify-between py-3"
+              className="flex justify-between py-3 cursor-pointer"
             >
-              <h1 className="text-xl font-bold ">
+              <h1 className="text-xl font-bold cursor-pointer ">
                 {ele?.card?.card?.title} ({ele.card?.card?.itemCards?.length})
               </h1>
-              <span className="text-2xl">▼</span>
+              <span className="text-3xl cursor-pointer">▼</span>
             </div>
 
             <div>

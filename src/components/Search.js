@@ -10,10 +10,10 @@ const Search = (props) => {
     props.sfrl(filteredList);
   };
   return (
-    <section className="flex justify-center px-5 items-center gap-10 mt-8 max-[768px]:flex-col">
-      <div className=" flex items-center max-w-2xl w-full border-solid border-2 border-gray-700 rounded-md overflow-hidden ">
+    <section className="flex justify-center px-5 items-center gap-10 pt-8 max-[768px]:flex-col ">
+      <div className=" flex items-center max-w-2xl w-full border-solid border-2 border-gray-700 rounded-md overflow-hidden bg-white ">
         <input
-          className="w-full outline-none p-4"
+          className="w-full outline-none p-4 bg-white"
           type="search"
           placeholder="Search for food and restaurants"
           value={searchText}
@@ -27,7 +27,7 @@ const Search = (props) => {
             }
           }}
         ></input>
-        <span className="text-3xl p-3" onClick={filter}>
+        <span className="text-3xl p-3 bg-white" onClick={filter}>
           🔍
         </span>
       </div>

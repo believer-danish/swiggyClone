@@ -20,27 +20,26 @@ const BodyComp = () => {
   const onlineStatus = useOnlineStatus();
   useEffect(() => {
     function fun(e) {
-      if (
-        document.documentElement.scrollTop + window.innerHeight >=
-        document.documentElement.scrollHeight - 800
-      ) {
-        console.log("called");
-        setFilteredRestaurantList((prev) => {
-          const newArr = prev.map((e) => {
-            const newObj = structuredClone(e);
-            newObj.info.key = crypto.randomUUID();
-            return newObj;
-          });
-          console.log([...prev, ...newArr]);
-          return [...prev, ...newArr];
+      console.log("called");
+      setFilteredRestaurantList((prev) => {
+        const newArr = prev.map((e) => {
+          const newObj = structuredClone(e);
+          newObj.info.key = crypto.randomUUID();
+          return newObj;
         });
-      }
+        console.log([...prev, ...newArr]);
+        return [...prev, ...newArr];
+      });
     }
     function create(cb, delay) {
       let prev = 0;
       return function (...p) {
         let now = Date.now();
-        if (now - prev >= delay) {
+        if (
+          now - prev >= delay &&
+          document.documentElement.scrollTop + window.innerHeight >=
+            document.documentElement.scrollHeight - 800
+        ) {
           prev = now;
           cb(...p);
         }
@@ -51,7 +50,7 @@ const BodyComp = () => {
     window.addEventListener("scroll", th);
 
     return () => {
-      window.removeEventListener("scroll", fun);
+      window.removeEventListener("scroll", th);
     };
   }, []);
   if (onlineStatus === false) return <h1>Looks you are offline</h1>;

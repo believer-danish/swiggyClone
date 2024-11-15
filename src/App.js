@@ -11,34 +11,39 @@ import appStore from "./utils/appStore.js";
 import { Provider } from "react-redux";
 import Cart from "./components/Cart.js";
 import useResList from "./utils/useResList.js";
-// import UserContext from "./utils/UserContext.js";
-
-const Account = lazy(() => {
-  return import("./components/Account.js");
-});
+import Loading from "./components/Loading.js";
+import About from "./components/About.js";
 
 const App = () => {
   const [restaurantList, setRestaurant] = useState([]);
   const [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
   const [dish, setDish] = useState([]);
-
+  const [load, setLoad] = useState(true);
   useResList(setRestaurant, setFilteredRestaurantList, setDish);
-
+  setTimeout(() => {
+    setLoad(false);
+  }, 4000);
   return (
     <main className="app-container">
-      <Provider store={appStore}>
-        <Header />
-        <Outlet
-          context={[
-            restaurantList,
-            setRestaurant,
-            filteredRestaurantList,
-            setFilteredRestaurantList,
-            dish,
-            setDish,
-          ]}
-        />
-      </Provider>
+      {load ? (
+        <Loading />
+      ) : (
+        <Provider store={appStore}>
+          <Header />
+          <div className="svgBackground">
+            <Outlet
+              context={[
+                restaurantList,
+                setRestaurant,
+                filteredRestaurantList,
+                setFilteredRestaurantList,
+                dish,
+                setDish,
+              ]}
+            />
+          </div>
+        </Provider>
+      )}
     </main>
   );
 };
@@ -62,12 +67,8 @@ const appRoutes = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/account",
-        element: (
-          <Suspense fallback={<h1>Loading</h1>}>
-            <Account />
-          </Suspense>
-        ),
+        path: "/about",
+        element: <About />,
       },
       {
         path: "/cart",
