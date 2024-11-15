@@ -13,6 +13,7 @@ import Cart from "./components/Cart.js";
 import useResList from "./utils/useResList.js";
 import Loading from "./components/Loading.js";
 import About from "./components/About.js";
+import Dish from "./components/Dish.js";
 
 const App = () => {
   const [restaurantList, setRestaurant] = useState([]);
@@ -77,6 +78,10 @@ const appRoutes = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: <RestaurantPage></RestaurantPage>,
+      },
+      {
+        path: "/dish",
+        element: <Dish />,
       },
     ],
   },

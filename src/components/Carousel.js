@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Carousel = ({ items }) => {
   if (items.length)
     return (
@@ -38,14 +40,16 @@ const Carousel = ({ items }) => {
                 key={item.id}
                 className="w-40 inline-block  cursor-pointer  hover:scale-90 transition-all "
               >
-                <img
-                  className="rounded-lg"
-                  src={
-                    "https://media-assets.swiggy.com/swiggy/image/upload/" +
-                    item.imageId
-                  }
-                  alt=""
-                />
+                <Link to="/dish">
+                  <img
+                    className="rounded-lg"
+                    src={
+                      "https://media-assets.swiggy.com/swiggy/image/upload/" +
+                      item.imageId
+                    }
+                    alt=""
+                  />
+                </Link>
               </div>
             ))}
           </div>

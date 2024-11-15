@@ -31,7 +31,7 @@ const Cart = () => {
         </button>
       </div>
 
-      <div className="flex justify-between w-full bg-white rounded-3xl p-8 ">
+      <div className="flex justify-between max-md:flex-col w-full bg-white rounded-3xl p-8 ">
         <div className="max-w-xl ">
           {cartItems.map((ele, i) => {
             sum +=
